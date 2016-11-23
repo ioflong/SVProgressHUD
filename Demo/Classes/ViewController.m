@@ -11,6 +11,11 @@
 @implementation ViewController
 
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+}
+
 #pragma mark - Notification Methods Sample
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -80,15 +85,18 @@ static float progress = 0.0f;
 }
 
 - (IBAction)showInfoWithStatus {
-    [SVProgressHUD showInfoWithStatus:@"Useful Information."];
+    [SVProgressHUD showImage:[YYImage imageNamed:@"animation.apng"] status:@"发送中"];
+//    [SVProgressHUD showInfoWithStatus:@"Useful Information."];
 }
 
 - (void)showSuccessWithStatus {
-	[SVProgressHUD showSuccessWithStatus:@"Great Success!"];
+    [SVProgressHUD showImage:[YYImage imageNamed:@"success"] status:@"发送成功"];
+//	[SVProgressHUD showSuccessWithStatus:@"Great Success!"];
 }
 
 - (void)showErrorWithStatus {
-	[SVProgressHUD showErrorWithStatus:@"Failed with Error"];
+    [SVProgressHUD showImage:[YYImage imageNamed:@"fail"] status:@"发送失败"];
+//	[SVProgressHUD showErrorWithStatus:@"Failed with Error"];
 }
 
 

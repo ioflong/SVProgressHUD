@@ -7,6 +7,8 @@
 
 #import <UIKit/UIKit.h>
 #import <AvailabilityMacros.h>
+#import "YYImage.h"
+#import "YYAnimatedImageView.h"
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED < 70000
 
@@ -119,6 +121,7 @@ typedef void (^SVProgressHUDDismissCompletion)(void);
 
 // shows a image + status, use 28x28 white PNGs
 + (void)showImage:(UIImage*)image status:(NSString*)status;
++ (void)showImage:(UIImage*)image status:(NSString*)status duration:(CGFloat)duration;
 + (void)showImage:(UIImage*)image status:(NSString*)status maskType:(SVProgressHUDMaskType)maskType __attribute__((deprecated("Use showImage:status: and setDefaultMaskType: instead.")));
 
 + (void)setOffsetFromCenter:(UIOffset)offset;

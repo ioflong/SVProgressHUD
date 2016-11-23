@@ -36,7 +36,7 @@ static const CGFloat SVProgressHUDDefaultAnimationDuration = 0.15;
 @property (nonatomic, strong) UIView *hudView;
 
 @property (nonatomic, strong) UILabel *statusLabel;
-@property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) YYAnimatedImageView *imageView;
 @property (nonatomic, strong) UIView *indefiniteAnimatedView;
 @property (nonatomic, strong) SVProgressAnimatedView *ringView;
 @property (nonatomic, strong) SVProgressAnimatedView *backgroundRingView;
@@ -279,6 +279,10 @@ static const CGFloat SVProgressHUDDefaultAnimationDuration = 0.15;
     [[self sharedView] showImage:image status:status duration:displayInterval];
 }
 
++ (void)showImage:(UIImage*)image status:(NSString*)status duration:(CGFloat)duration {
+    [[self sharedView] showImage:image status:status duration:0];
+}
+
 + (void)showImage:(UIImage*)image status:(NSString*)status maskType:(SVProgressHUDMaskType)maskType {
     SVProgressHUDMaskType existingMaskType = [self sharedView].defaultMaskType;
     [self setDefaultMaskType:maskType];
@@ -400,9 +404,10 @@ static const CGFloat SVProgressHUDDefaultAnimationDuration = 0.15;
     CGFloat hudHeight = 0.0f;
     CGRect labelRect = CGRectZero;
     
-    CGFloat verticalSpacing = 12.0f; // |-12-content-(8-label-)12-|
+    CGFloat topVerticalSpacing = 10.0f; // |-10-content-(15-label-)15-|
+    CGFloat bottomVerticalSpacing = 10.0f; // |-10-content-(15-label-)15-|
     CGFloat horizontalSpacing = 12.0f; // |-12-content-12-|
-    CGFloat progressLabelSpacing = 8.0f; // content-8-label; progess = spinner or image
+    CGFloat progressLabelSpacing = 15.0f; // content-15-label; progess = spinner or image
     
     // Check if an image or progress ring is displayed
     BOOL imageUsed = (self.imageView.image) && !(self.imageView.hidden);
@@ -410,7 +415,7 @@ static const CGFloat SVProgressHUDDefaultAnimationDuration = 0.15;
     
     // Calculate size of string and update HUD size
     NSString *string = self.statusLabel.text;
-    if(string) {
+    if(string && string.length > 0) {
         CGSize constraintSize = CGSizeMake(200.0f, 300.0f);
         if([string respondsToSelector:@selector(boundingRectWithSize:options:attributes:context:)]) {
             labelRect = [string boundingRectWithSize:constraintSize
@@ -435,18 +440,30 @@ static const CGFloat SVProgressHUDDefaultAnimationDuration = 0.15;
         
         CGFloat labelHeight = ceilf(CGRectGetHeight(labelRect));
         CGFloat labelWidth = ceilf(CGRectGetWidth(labelRect));
-        
+        hudWidth = labelWidth;
+
         if(imageUsed || progressUsed) {
             CGFloat contentHeight = (imageUsed ? CGRectGetHeight(self.imageView.frame) : CGRectGetHeight(self.indefiniteAnimatedView.frame));
-            hudHeight = verticalSpacing + contentHeight + progressLabelSpacing + labelHeight + verticalSpacing;
+            hudHeight = topVerticalSpacing + contentHeight + progressLabelSpacing + labelHeight + bottomVerticalSpacing;
+            CGFloat contentWidth = horizontalSpacing + CGRectGetWidth(self.imageView.frame) + horizontalSpacing;
+            if (hudWidth < contentWidth) {
+                hudWidth = contentWidth;
+            }
         } else {
-            hudHeight = verticalSpacing + labelHeight + verticalSpacing;
+            hudHeight = topVerticalSpacing + labelHeight + bottomVerticalSpacing;
         }
-        hudWidth = labelWidth;
+        self.hudView.bounds = CGRectMake(0.0f, 0.0f, MAX(self.minimumSize.width, hudWidth), MAX(self.minimumSize.height, hudHeight));
+
+    } else {
+        if(imageUsed || progressUsed) {
+            self.hudView.bounds = CGRectMake(0.0f, 0.0f, MAX(128, hudWidth), MAX(128, hudHeight));
+        } else {
+            self.hudView.bounds = CGRectMake(0.0f, 0.0f, MAX(self.minimumSize.width, hudWidth), MAX(self.minimumSize.height, hudHeight));
+        }
+
     }
     
     // Update values on subviews
-    self.hudView.bounds = CGRectMake(0.0f, 0.0f, MAX(self.minimumSize.width, hudWidth), MAX(self.minimumSize.height, hudHeight));
     [self updateBlurBounds];
     
     // Animate value update
@@ -455,10 +472,10 @@ static const CGFloat SVProgressHUDDefaultAnimationDuration = 0.15;
     
     // Spinner and image view
     CGFloat centerY;
-    if(string){
+    if(string && string.length > 0){
         CGFloat contentHeight = (imageUsed ? CGRectGetHeight(self.imageView.frame) : CGRectGetHeight(self.indefiniteAnimatedView.frame));
         CGFloat labelHeight = ceilf(CGRectGetHeight(labelRect));
-        CGFloat yOffset = MAX(verticalSpacing, (self.minimumSize.height - contentHeight - progressLabelSpacing - labelHeight) / 2.0f);
+        CGFloat yOffset = MAX(topVerticalSpacing, (self.minimumSize.height - contentHeight - progressLabelSpacing - labelHeight) / 2.0f);
         
         centerY = yOffset + contentHeight / 2.0f;
     } else {
@@ -474,8 +491,9 @@ static const CGFloat SVProgressHUDDefaultAnimationDuration = 0.15;
     if(imageUsed || progressUsed){
         labelRect.origin.y = (imageUsed ? CGRectGetMaxY(self.imageView.frame) : CGRectGetMaxY(self.indefiniteAnimatedView.frame)) + progressLabelSpacing;
     } else {
-        labelRect.origin.y = verticalSpacing;
+        labelRect.origin.y = topVerticalSpacing;
     }
+    labelRect.origin.x = (CGRectGetWidth(self.hudView.bounds) - CGRectGetWidth(labelRect)) / 2.0;
     self.statusLabel.frame = labelRect;
     self.statusLabel.hidden = !string;
     
@@ -908,18 +926,23 @@ static const CGFloat SVProgressHUDDefaultAnimationDuration = 0.15;
             [strongSelf cancelIndefiniteAnimatedViewAnimation];
             
             // Update imageView
-            UIColor *tintColor = strongSelf.foregroundColorForStyle;
-            UIImage *tintedImage = image;
-            if([strongSelf.imageView respondsToSelector:@selector(setTintColor:)]) {
-                if (tintedImage.renderingMode != UIImageRenderingModeAlwaysTemplate) {
-                    tintedImage = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-                }
-                strongSelf.imageView.tintColor = tintColor;
+            if ([image isKindOfClass:[YYImage class]]) {
+                strongSelf.imageView.image = image;
             } else {
-                tintedImage = [strongSelf image:image withTintColor:tintColor];
+                UIColor *tintColor = strongSelf.foregroundColorForStyle;
+                UIImage *tintedImage = image;
+                if([strongSelf.imageView respondsToSelector:@selector(setTintColor:)]) {
+                    if (tintedImage.renderingMode != UIImageRenderingModeAlwaysTemplate) {
+                        tintedImage = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+                    }
+                    strongSelf.imageView.tintColor = tintColor;
+                } else {
+                    tintedImage = [strongSelf image:image withTintColor:tintColor];
+                }
+                strongSelf.imageView.image = tintedImage;
             }
-            strongSelf.imageView.image = tintedImage;
             strongSelf.imageView.hidden = NO;
+
             
             // Update text
             strongSelf.statusLabel.text = status;
@@ -929,8 +952,12 @@ static const CGFloat SVProgressHUDDefaultAnimationDuration = 0.15;
             
             // An image will dismissed automatically. Therefore we start a timer
             // which then will call dismiss after the predefined duration
-            strongSelf.fadeOutTimer = [NSTimer timerWithTimeInterval:duration target:strongSelf selector:@selector(dismiss) userInfo:nil repeats:NO];
-            [[NSRunLoop mainRunLoop] addTimer:strongSelf.fadeOutTimer forMode:NSRunLoopCommonModes];
+            if (duration > 0) {
+                strongSelf.fadeOutTimer = [NSTimer timerWithTimeInterval:duration target:strongSelf selector:@selector(dismiss) userInfo:nil repeats:NO];
+                [[NSRunLoop mainRunLoop] addTimer:strongSelf.fadeOutTimer forMode:NSRunLoopCommonModes];
+            } else {
+                strongSelf.fadeOutTimer = nil;
+            }
         }
     }];
 }
@@ -1311,9 +1338,9 @@ static const CGFloat SVProgressHUDDefaultAnimationDuration = 0.15;
     return _statusLabel;
 }
 
-- (UIImageView*)imageView {
+- (YYAnimatedImageView*)imageView {
     if(!_imageView) {
-        _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 28.0f, 28.0f)];
+        _imageView = [[YYAnimatedImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 108.0f, 75.0f)];
     }
     if(!_imageView.superview) {
         [self.hudView addSubview:_imageView];

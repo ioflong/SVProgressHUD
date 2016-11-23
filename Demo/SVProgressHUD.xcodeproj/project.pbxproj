@@ -16,7 +16,6 @@
 		22B9D43816B92E4D00E71652 /* SVProgressHUD.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 22B9D43716B92E4D00E71652 /* SVProgressHUD.podspec */; };
 		22D13AB71365FEAC0025FCC9 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 22D13AB61365FEAC0025FCC9 /* SVProgressHUD.bundle */; };
 		22EBCD19134128130074B281 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 22EBCD18134128130074B281 /* MainWindow-iPad.xib */; };
-		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		2899E5220DE3E06400AC0155 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* ViewController.xib */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		28D7ACF80DDB3853001CB0EB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28D7ACF70DDB3853001CB0EB /* ViewController.m */; };
@@ -34,6 +33,25 @@
 		D396A65F1BE7EB4B00E6E1BF /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 63ADC4BA1364C1360060E45B /* SVProgressHUD.m */; };
 		D396A6601BE7EB4D00E6E1BF /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = B07118281A3264C900C8A614 /* SVIndefiniteAnimatedView.m */; };
 		D396A6611BE7F6BF00E6E1BF /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 22D13AB61365FEAC0025FCC9 /* SVProgressHUD.bundle */; };
+		FD8F730B1DE56CBF0078082D /* animation.apng in Resources */ = {isa = PBXBuildFile; fileRef = FD8F730A1DE56CBF0078082D /* animation.apng */; };
+		FD8F73371DE56F990078082D /* YYAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8F732E1DE56F990078082D /* YYAnimatedImageView.m */; };
+		FD8F73381DE56F990078082D /* YYFrameImage.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8F73301DE56F990078082D /* YYFrameImage.m */; };
+		FD8F73391DE56F990078082D /* YYImage.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8F73321DE56F990078082D /* YYImage.m */; };
+		FD8F733A1DE56F990078082D /* YYImageCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8F73341DE56F990078082D /* YYImageCoder.m */; };
+		FD8F733B1DE56F990078082D /* YYSpriteSheetImage.m in Sources */ = {isa = PBXBuildFile; fileRef = FD8F73361DE56F990078082D /* YYSpriteSheetImage.m */; };
+		FD8F733D1DE570060078082D /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8F733C1DE570060078082D /* CoreImage.framework */; };
+		FD8F733F1DE5700A0078082D /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8F733E1DE5700A0078082D /* ImageIO.framework */; };
+		FD8F73411DE5702A0078082D /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8F73401DE5702A0078082D /* Photos.framework */; };
+		FD8F73451DE5703B0078082D /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8F73441DE5703B0078082D /* AssetsLibrary.framework */; };
+		FD8F734A1DE570E50078082D /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8F73491DE570E50078082D /* Accelerate.framework */; };
+		FD8F734C1DE570EA0078082D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8F734B1DE570EA0078082D /* MobileCoreServices.framework */; };
+		FD8F734E1DE570F00078082D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8F734D1DE570F00078082D /* libz.tbd */; };
+		FD8F734F1DE5712E0078082D /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD8F73461DE570760078082D /* CoreFoundation.framework */; };
+		FD8F73501DE571360078082D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		FD8F73561DE5884F0078082D /* fail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD8F73521DE5884F0078082D /* fail@2x.png */; };
+		FD8F73571DE5884F0078082D /* fail@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD8F73531DE5884F0078082D /* fail@3x.png */; };
+		FD8F73581DE5884F0078082D /* success@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD8F73541DE5884F0078082D /* success@2x.png */; };
+		FD8F73591DE5884F0078082D /* success@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD8F73551DE5884F0078082D /* success@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +88,30 @@
 		D36EDBD41BE7E9B000BD0EF1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D36EDBDA1BE7E9B100BD0EF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D36EDBDE1BE7E9B100BD0EF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD8F730A1DE56CBF0078082D /* animation.apng */ = {isa = PBXFileReference; lastKnownFileType = file; path = animation.apng; sourceTree = "<group>"; };
+		FD8F732D1DE56F990078082D /* YYAnimatedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYAnimatedImageView.h; sourceTree = "<group>"; };
+		FD8F732E1DE56F990078082D /* YYAnimatedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYAnimatedImageView.m; sourceTree = "<group>"; };
+		FD8F732F1DE56F990078082D /* YYFrameImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYFrameImage.h; sourceTree = "<group>"; };
+		FD8F73301DE56F990078082D /* YYFrameImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYFrameImage.m; sourceTree = "<group>"; };
+		FD8F73311DE56F990078082D /* YYImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYImage.h; sourceTree = "<group>"; };
+		FD8F73321DE56F990078082D /* YYImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYImage.m; sourceTree = "<group>"; };
+		FD8F73331DE56F990078082D /* YYImageCoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYImageCoder.h; sourceTree = "<group>"; };
+		FD8F73341DE56F990078082D /* YYImageCoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYImageCoder.m; sourceTree = "<group>"; };
+		FD8F73351DE56F990078082D /* YYSpriteSheetImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYSpriteSheetImage.h; sourceTree = "<group>"; };
+		FD8F73361DE56F990078082D /* YYSpriteSheetImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYSpriteSheetImage.m; sourceTree = "<group>"; };
+		FD8F733C1DE570060078082D /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		FD8F733E1DE5700A0078082D /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		FD8F73401DE5702A0078082D /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		FD8F73421DE570350078082D /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		FD8F73441DE5703B0078082D /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		FD8F73461DE570760078082D /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		FD8F73491DE570E50078082D /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		FD8F734B1DE570EA0078082D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		FD8F734D1DE570F00078082D /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		FD8F73521DE5884F0078082D /* fail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fail@2x.png"; sourceTree = "<group>"; };
+		FD8F73531DE5884F0078082D /* fail@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fail@3x.png"; sourceTree = "<group>"; };
+		FD8F73541DE5884F0078082D /* success@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "success@2x.png"; sourceTree = "<group>"; };
+		FD8F73551DE5884F0078082D /* success@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "success@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,10 +119,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD8F73501DE571360078082D /* CoreGraphics.framework in Frameworks */,
+				FD8F734F1DE5712E0078082D /* CoreFoundation.framework in Frameworks */,
+				FD8F734E1DE570F00078082D /* libz.tbd in Frameworks */,
+				FD8F734C1DE570EA0078082D /* MobileCoreServices.framework in Frameworks */,
+				FD8F734A1DE570E50078082D /* Accelerate.framework in Frameworks */,
 				3FF0384716633A330070E901 /* QuartzCore.framework in Frameworks */,
+				FD8F73451DE5703B0078082D /* AssetsLibrary.framework in Frameworks */,
+				FD8F73411DE5702A0078082D /* Photos.framework in Frameworks */,
+				FD8F733F1DE5700A0078082D /* ImageIO.framework in Frameworks */,
+				FD8F733D1DE570060078082D /* CoreImage.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
-				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +147,7 @@
 		080E96DDFE201D6D7F000001 /* iOS Demo */ = {
 			isa = PBXGroup;
 			children = (
+				FD8F73511DE5884F0078082D /* resources */,
 				63ADC4B81364C1360060E45B /* SVProgressHUD */,
 				28D7ACF60DDB3853001CB0EB /* ViewController.h */,
 				28D7ACF70DDB3853001CB0EB /* ViewController.m */,
@@ -121,6 +172,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				FD8F732C1DE56F990078082D /* YYImage */,
 				2265DEED14706A8900B3EBF7 /* README.md */,
 				22B9D43716B92E4D00E71652 /* SVProgressHUD.podspec */,
 				080E96DDFE201D6D7F000001 /* iOS Demo */,
@@ -148,6 +200,15 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FD8F734D1DE570F00078082D /* libz.tbd */,
+				FD8F734B1DE570EA0078082D /* MobileCoreServices.framework */,
+				FD8F73491DE570E50078082D /* Accelerate.framework */,
+				FD8F73461DE570760078082D /* CoreFoundation.framework */,
+				FD8F73441DE5703B0078082D /* AssetsLibrary.framework */,
+				FD8F73421DE570350078082D /* JavaScriptCore.framework */,
+				FD8F73401DE5702A0078082D /* Photos.framework */,
+				FD8F733E1DE5700A0078082D /* ImageIO.framework */,
+				FD8F733C1DE570060078082D /* CoreImage.framework */,
 				3FF0384616633A330070E901 /* QuartzCore.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
@@ -159,6 +220,7 @@
 		63ADC4B81364C1360060E45B /* SVProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
+				FD8F730A1DE56CBF0078082D /* animation.apng */,
 				B07118271A3264C900C8A614 /* SVIndefiniteAnimatedView.h */,
 				B07118281A3264C900C8A614 /* SVIndefiniteAnimatedView.m */,
 				3C32D91F1CAC66CA009CDAB0 /* SVProgressAnimatedView.h */,
@@ -191,6 +253,36 @@
 				D36EDBD11BE7E9B000BD0EF1 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FD8F732C1DE56F990078082D /* YYImage */ = {
+			isa = PBXGroup;
+			children = (
+				FD8F732D1DE56F990078082D /* YYAnimatedImageView.h */,
+				FD8F732E1DE56F990078082D /* YYAnimatedImageView.m */,
+				FD8F732F1DE56F990078082D /* YYFrameImage.h */,
+				FD8F73301DE56F990078082D /* YYFrameImage.m */,
+				FD8F73311DE56F990078082D /* YYImage.h */,
+				FD8F73321DE56F990078082D /* YYImage.m */,
+				FD8F73331DE56F990078082D /* YYImageCoder.h */,
+				FD8F73341DE56F990078082D /* YYImageCoder.m */,
+				FD8F73351DE56F990078082D /* YYSpriteSheetImage.h */,
+				FD8F73361DE56F990078082D /* YYSpriteSheetImage.m */,
+			);
+			name = YYImage;
+			path = ../YYImage;
+			sourceTree = "<group>";
+		};
+		FD8F73511DE5884F0078082D /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				FD8F73521DE5884F0078082D /* fail@2x.png */,
+				FD8F73531DE5884F0078082D /* fail@3x.png */,
+				FD8F73541DE5884F0078082D /* success@2x.png */,
+				FD8F73551DE5884F0078082D /* success@3x.png */,
+			);
+			name = resources;
+			path = ../../SVProgressHUD/resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,10 +362,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
+				FD8F73581DE5884F0078082D /* success@2x.png in Resources */,
 				2899E5220DE3E06400AC0155 /* ViewController.xib in Resources */,
+				FD8F730B1DE56CBF0078082D /* animation.apng in Resources */,
+				FD8F73571DE5884F0078082D /* fail@3x.png in Resources */,
 				22EBCD19134128130074B281 /* MainWindow-iPad.xib in Resources */,
 				22D13AB71365FEAC0025FCC9 /* SVProgressHUD.bundle in Resources */,
+				FD8F73561DE5884F0078082D /* fail@2x.png in Resources */,
 				2265DEEE14706A8900B3EBF7 /* README.md in Resources */,
+				FD8F73591DE5884F0078082D /* success@3x.png in Resources */,
 				22A748961630AD6A004893A8 /* Default-568h@2x.png in Resources */,
 				22B9D43816B92E4D00E71652 /* SVProgressHUD.podspec in Resources */,
 			);
@@ -295,13 +392,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD8F733B1DE56F990078082D /* YYSpriteSheetImage.m in Sources */,
 				B07118291A3264C900C8A614 /* SVIndefiniteAnimatedView.m in Sources */,
 				3CD078EA1A3B809500290D80 /* SVRadialGradientLayer.m in Sources */,
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				FD8F73371DE56F990078082D /* YYAnimatedImageView.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				28D7ACF80DDB3853001CB0EB /* ViewController.m in Sources */,
+				FD8F73381DE56F990078082D /* YYFrameImage.m in Sources */,
 				3C32D9211CAC66CA009CDAB0 /* SVProgressAnimatedView.m in Sources */,
 				63ADC4BC1364C1360060E45B /* SVProgressHUD.m in Sources */,
+				FD8F73391DE56F990078082D /* YYImage.m in Sources */,
+				FD8F733A1DE56F990078082D /* YYImageCoder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
